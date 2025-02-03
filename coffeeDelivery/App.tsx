@@ -1,4 +1,5 @@
 import { Text, View, StatusBar } from "react-native";
+import { NativeBaseProvider } from "native-base";
 import {
   useFonts,
   Roboto_400Regular,
