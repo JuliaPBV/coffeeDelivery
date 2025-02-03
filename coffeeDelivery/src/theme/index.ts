@@ -1,4 +1,6 @@
-export const theme = {
+import { extendTheme } from "native-base";
+
+export const THEME = extendTheme({
   colors: {
     product: {
       yellowDark: "#C47F17",
@@ -97,4 +99,4 @@ export const theme = {
       fontWeight: "bold",
     },
   },
-};
+});
