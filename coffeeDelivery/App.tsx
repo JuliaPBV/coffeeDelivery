@@ -1,25 +1,28 @@
-import { StatusBar } from "react-native";
-import { NativeBaseProvider } from "native-base";
 import {
   useFonts,
   Roboto_400Regular,
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto";
-import { Loading } from "src/components/Loading";
-import { THEME } from "./src/theme";
-import { SignIn } from "src/screens/SignIn";
+import AppLoading from "expo-app-loading";
+import { ThemeProvider } from "styled-components/native";
+import theme from "@src/theme";
+import { Product } from "@src/screens/Product";
+import { StatusBar } from "expo-status-bar";
+import { AuthProvider } from "@hooks/auth";
 
 export default function App() {
   const [fonstLoaded] = useFonts({ Roboto_400Regular, Roboto_700Bold });
 
+  if (!fonstLoaded) {
+    return <AppLoading />;
+  }
+
   return (
-    <NativeBaseProvider theme={THEME}>
-      <StatusBar
-        barStyle="light-content"
-        backgroundColor="transparent"
-        translucent
-      />
-      {fonstLoaded ? <SignIn /> : <Loading />}
-    </NativeBaseProvider>
+    <ThemeProvider theme={theme}>
+      <StatusBar style="light" translucent backgroundColor="transparent" />
+      <AuthProvider>
+        <Product />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
