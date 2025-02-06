@@ -1,22 +1,21 @@
-import {
-  Container,
-  Header,
-  Greeting,
-  GreetingEmoji,
-  GreetingText,
-} from "./styles";
-import { buscar } from "../../assets/Type=map-pin-fill.png";
+import { Container, Header, Greeting, GreetingText } from "./styles";
 import React from "react";
+import { ThemeProvider } from "styled-components/native";
+import theme from "@src/theme";
+import { StyledImage } from "./styles";
+import localizador from "@assets/Vector.png";
 
 export function Catalog() {
   return (
-    <Container>
-      <Header>
-        <Greeting>
-          <GreetingEmoji source={buscar} />
-          <GreetingText>Osasco-SP</GreetingText>
-        </Greeting>
-      </Header>
-    </Container>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Header>
+          <Greeting>
+            <StyledImage source={localizador} resizeMode="contain" />
+            <GreetingText>Osasco-SP</GreetingText>
+          </Greeting>
+        </Header>
+      </Container>
+    </ThemeProvider>
   );
 }

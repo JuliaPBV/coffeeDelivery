@@ -3,7 +3,7 @@ import { TextInputProps } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 
 import { Container, Size, Label, Input } from "./styles";
-import { theme } from "@src/theme";
+import theme, { Theme } from "@src/theme";
 
 type Props = TextInputProps & {
   size: string;
@@ -11,7 +11,7 @@ type Props = TextInputProps & {
 
 export function InputPrice({ size, ...rest }: Props) {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme as Theme}>
       <Container>
         <Size>
           <Label>{size}</Label>

@@ -3,13 +3,14 @@ import { Image } from "react-native";
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${({ props }) => props.theme.COLORS["purple"]};
+  background-color: ${({ theme }) => theme.COLORS.PURPLE};
   align-items: center;
   justify-content: center;
 `;
 
-export const Logo = styled(Image)`
+export const Logo = styled(Image).attrs({
+  resizeMode: "contain",
+})`
   width: 200px;
   height: 200px;
-  resize-mode: contain;
 `;

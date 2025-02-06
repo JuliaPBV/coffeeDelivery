@@ -3,6 +3,8 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "@src/routes";
 import { Container, Logo } from "./styles";
+import { ThemeProvider } from "styled-components/native";
+import theme, { Theme } from "@src/theme";
 
 type SplashScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -19,8 +21,10 @@ export default function Splash() {
   }, [navigation]);
 
   return (
-    <Container>
-      <Logo source={require("@assets/Logo.png")} />
-    </Container>
+    <ThemeProvider theme={theme as Theme}>
+      <Container>
+        <Logo source={require("@assets/Logo.png")} />
+      </Container>
+    </ThemeProvider>
   );
 }

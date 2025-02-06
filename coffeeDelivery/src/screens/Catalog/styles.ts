@@ -1,17 +1,15 @@
 import styled, { css } from "styled-components/native";
-import { DefaultTheme } from "styled-components/native";
+import { Image } from "react-native";
 
-interface ContainerProps {
-  theme: DefaultTheme;
-}
-
-export const Container = styled.View<ContainerProps>`
+export const Container = styled.View`
   flex: 1;
-  background-color: ${({ theme }) => theme.COLORS["gray_900"]};
+  background-color: ${({ theme }) => theme.COLORS.GRAY_100};
+  justify-content: center;
+  position: relative;
 `;
 
 export const Header = styled.View`
-  background-color: ${({ theme }) => theme.COLORS["gray_100"]};
+  background-color: ${({ theme }) => theme.COLORS.GRAY_100};
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
@@ -20,20 +18,21 @@ export const Header = styled.View`
 
 export const Greeting = styled.View`
   flex-direction: row;
-  align-items: center;
+  position: "absolute";
+  margin-top: 0px;
 `;
 
-export const GreetingEmoji = styled.Image`
-  height: 32px;
-  width: 32px;
-  margin-right: 32px;
+export const StyledImage = styled(Image)`
+  //position: absolute;
+  //top: 10px;
+  //left: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
 `;
 
 export const GreetingText = styled.Text`
-  font-size: 20px;
-
-  ${({ theme }) => css`
-    font-family: ${theme.TYPOGRAPHY["text-sm"]};
-    color: ${theme.COLORS["gray_100"]};
-  `};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
+  color: ${({ theme }) => theme.COLORS.GRAY_900};
+  font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_MD}px;
 `;

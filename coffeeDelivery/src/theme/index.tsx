@@ -1,166 +1,112 @@
-// src/theme/index.ts
 import { DefaultTheme } from "styled-components/native";
-export const theme: DefaultTheme = {
+
+export interface Theme extends DefaultTheme {
   COLORS: {
-    // Produto
-    "yellow-dark": "#C47F17",
-    yellow: "#DBAC2C",
-    "purple-dark": "#4B2995",
-    purple: "#8047F8",
-    "purple-light": "#EBE5F9",
+    WHITE: string;
+    YELLOW_DARK: string;
+    YELLOW: string;
+    PURPLE_DARK: string;
+    PURPLE: string;
+    PURPLE_LIGHT: string;
+    GRAY_100: string;
+    GRAY_200: string;
+    GRAY_300: string;
+    GRAY_400: string;
+    GRAY_500: string;
+    GRAY_600: string;
+    GRAY_700: string;
+    GRAY_800: string;
+    GRAY_900: string;
+    RED_DARK: string;
+    RED: string;
+    RED_LIGHT: string;
+  };
+  FONT_FAMILY: {
+    BALOO_2_BOLD: string;
+    ROBOTO_REGULAR: string;
+    ROBOTO_BOLD: string;
+  };
+  FONT_SIZE: {
+    TITLE_XL: number;
+    TITLE_LG: number;
+    TITLE_MD: number;
+    TITLE_SM: number;
+    TITLE_XS: number;
+    TEXT_LG: number;
+    TEXT_MD: number;
+    TEXT_SM: number;
+    TEXT_XS: number;
+    TAG: number;
+    BUTTON: number;
+  };
+  LINE_HEIGHT: {
+    TITLE_XL: string;
+    TITLE_LG: string;
+    TITLE_MD: string;
+    TITLE_SM: string;
+    TITLE_XS: string;
+    TEXT_LG: string;
+    TEXT_MD: string;
+    TEXT_SM: string;
+    TEXT_XS: string;
+    TAG: string;
+    BUTTON: string;
+  };
+}
 
-    // Base
-    "gray-100": "#272221",
-    "gray-200": "#403937",
-    "gray-300": "#574F4D",
-    "gray-400": "#8D8686",
-    "gray-500": "#D7D5D5",
-    "gray-600": "#E6E5E5",
-    "gray-700": "#EDEDED",
-    "gray-800": "#F3F2F2",
-    "gray-900": "#FAFAFA",
-    white: "#FFFFFF",
-
-    // Feedback
-    "red-dark": "#C44117",
-    red: "#E8BAAB",
-    "red-light": "#F2DFD8",
+const theme: Theme = {
+  // Crie o objeto theme que implementa a interface
+  COLORS: {
+    WHITE: "#FFFFFF",
+    YELLOW_DARK: "#C47F17",
+    YELLOW: "#DBAC2C",
+    PURPLE_DARK: "#4B2995",
+    PURPLE: "#8047F8",
+    PURPLE_LIGHT: "#EBE5F9",
+    GRAY_100: "#272221",
+    GRAY_200: "#403937",
+    GRAY_300: "#574F4D",
+    GRAY_400: "#8D8686",
+    GRAY_500: "#D7D5D5",
+    GRAY_600: "#E6E5F5",
+    GRAY_700: "#EDEDED",
+    GRAY_800: "#F3F2F2",
+    GRAY_900: "#FAFAFA",
+    RED_DARK: "#C44117",
+    RED: "#E8BAAB",
+    RED_LIGHT: "#F2DFD8",
   },
-
-  TYPOGRAPHY: {
-    // Baloo 2 Font (Title)
-    "title-xl": {
-      fontFamily: "Baloo 2",
-      fontSize: "36px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-    },
-    "title-lg": {
-      fontFamily: "Baloo 2",
-      fontSize: "24px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-    },
-    "title-md": {
-      fontFamily: "Baloo 2",
-      fontSize: "20px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-    },
-    "title-sm": {
-      fontFamily: "Baloo 2",
-      fontSize: "16px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-    },
-    "title-xs": {
-      fontFamily: "Baloo 2",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-    },
-
-    // Roboto Font (Text)
-    "text-lg": {
-      fontFamily: "Roboto",
-      fontSize: "20px",
-      lineHeight: "130%",
-      fontWeight: "regular",
-    },
-    "text-md": {
-      fontFamily: "Roboto",
-      fontSize: "16px",
-      lineHeight: "130%",
-      fontWeight: "regular",
-    },
-    "text-sm": {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "regular",
-    },
-    "text-xs": {
-      fontFamily: "Roboto",
-      fontSize: "12px",
-      lineHeight: "130%",
-      fontWeight: "regular",
-    },
-
-    // Button
-    button: {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "160%",
-      fontWeight: "bold",
-    },
-
-    // Tag
-    tag: {
-      fontFamily: "Roboto",
-      fontSize: "10px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-    },
-
-    // Label
-    "label-yellow-default": {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "regular",
-      color: "#DBAC2C", // Correspondente ao 'yellow'
-    },
-    "label-yellow-focus": {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-      color: "#C47F17", // Correspondente ao 'yellow-dark'
-    },
-    "label-purple-default": {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "regular",
-      color: "#8047F8", // Correspondente ao 'purple'
-    },
-    "label-purple-focus": {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-      color: "#4B2995", // Correspondente ao 'purple-dark'
-    },
-    "icon-default": {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "regular",
-    },
-    "icon-focus": {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-    },
-    "remove-default": {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "regular",
-    },
-    "remove-focus": {
-      fontFamily: "Roboto",
-      fontSize: "14px",
-      lineHeight: "130%",
-      fontWeight: "bold",
-    },
+  FONT_FAMILY: {
+    BALOO_2_BOLD: "Baloo2-Bold",
+    ROBOTO_REGULAR: "Roboto_400Regular",
+    ROBOTO_BOLD: "Roboto_700Bold",
   },
-
-  SIZES: {
-    lg: "24px",
-    md: "16px",
-    sm: "12px",
-    xs: "8px",
+  FONT_SIZE: {
+    TITLE_XL: 36,
+    TITLE_LG: 24,
+    TITLE_MD: 20,
+    TITLE_SM: 16,
+    TITLE_XS: 14,
+    TEXT_LG: 20,
+    TEXT_MD: 16,
+    TEXT_SM: 14,
+    TEXT_XS: 12,
+    TAG: 10,
+    BUTTON: 14,
+  },
+  LINE_HEIGHT: {
+    TITLE_XL: "130%",
+    TITLE_LG: "130%",
+    TITLE_MD: "130%",
+    TITLE_SM: "130%",
+    TITLE_XS: "130%",
+    TEXT_LG: "130%",
+    TEXT_MD: "130%",
+    TEXT_SM: "130%",
+    TEXT_XS: "130%",
+    TAG: "130%",
+    BUTTON: "160%",
   },
 };
+
+export default theme; // Exporte o objeto theme, não a interface

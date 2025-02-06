@@ -2,7 +2,7 @@ import React from "react";
 import { TouchableOpacityProps } from "react-native";
 import { Container, Title } from "./styles";
 import { ThemeProvider } from "styled-components/native";
-import { theme } from "@src/theme";
+import theme, { Theme } from "@src/theme";
 
 interface ButtonProps extends TouchableOpacityProps {
   title: string;
@@ -10,7 +10,7 @@ interface ButtonProps extends TouchableOpacityProps {
 
 export function Button({ title, ...rest }: ButtonProps) {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme as Theme}>
       <Container {...rest}>
         <Title>{title}</Title>
       </Container>
