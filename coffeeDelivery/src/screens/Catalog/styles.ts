@@ -4,6 +4,8 @@ import { Image } from "react-native";
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.GRAY_100};
+  width: 100%;
+  height: 55%;
 `;
 
 export const Header = styled.View`
@@ -12,7 +14,6 @@ export const Header = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
 `;
 
 export const Greeting = styled.View`
@@ -23,7 +24,7 @@ export const Greeting = styled.View`
 export const StyledImage = styled(Image)`
   width: 20px;
   height: 20px;
-  margin-right: 12px;
+  margin: 12px;
 `;
 
 export const GreetingText = styled.Text`
@@ -37,7 +38,15 @@ export const CartButton = styled.TouchableOpacity`
 `;
 
 export const CartIcon = styled.Image`
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   margin-right: 15px;
+  padding-right: 16px;
+`;
+
+export const Title = styled.Text`
+  color: ${({ theme }) => theme.COLORS.GRAY_300};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_MD}px;
+  margin-bottom: 16px;
 `;
