@@ -25,7 +25,7 @@ export const SearchInputContainer = styled.View`
 
 export const SearchInput = styled(TextInput)`
   flex: 1;
-  color: ${({ theme }) => theme.COLORS.GRAY_400};
+  color: ${({ theme }) => theme.COLORS.GRAY_900};
   margin-left: 8px;
 `;
 

@@ -55,7 +55,6 @@ export interface Theme extends DefaultTheme {
 }
 
 const theme: Theme = {
-  // Crie o objeto theme que implementa a interface
   COLORS: {
     WHITE: "#FFFFFF",
     YELLOW_DARK: "#C47F17",

@@ -1,11 +1,24 @@
-import styled, { css } from "styled-components/native";
+import styled from "styled-components/native";
 import { Image } from "react-native";
 
 export const Container = styled.View`
   flex: 1;
+  position: relative;
+  flex-direction: column;
+`;
+
+export const TopBackground = styled.View`
   background-color: ${({ theme }) => theme.COLORS.GRAY_100};
+  position: absolute;
   width: 100%;
   height: 55%;
+  flex: 1;
+  min-height: 70vh;
+`;
+
+export const BottomBackground = styled.View`
+  flex: 1;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
 `;
 
 export const Header = styled.View`
