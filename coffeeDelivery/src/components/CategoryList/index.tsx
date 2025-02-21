@@ -1,18 +1,30 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
-import { CategoryBoxContainer, ContainerText } from "./styles";
+import { SectionList, Text, TouchableOpacity, View } from "react-native";
+import { ThemeProvider } from "styled-components/native";
+import theme from "@src/theme";
+import { styles } from "./styles";
 
-interface Props {
-  children: string;
-  onPress?: () => void;
+interface CategoryListProps {
+  categories: { data: string[] }[];
 }
 
-export const CategoryBox: React.FC<Props> = ({ children, onPress }) => {
+export function CategoryList({ categories }: CategoryListProps) {
   return (
-    <TouchableOpacity onPress={onPress}>
-      <CategoryBoxContainer>
-        <ContainerText>{children}</ContainerText>
-      </CategoryBoxContainer>
-    </TouchableOpacity>
+    <ThemeProvider theme={theme}>
+      <SectionList
+        sections={categories}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            style={styles.categoryButton}
+            onPress={() => console.log(`${item} pressionado`)}
+          >
+            <Text style={styles.categoryButtonText}>{item}</Text>
+          </TouchableOpacity>
+        )}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+      />
+    </ThemeProvider>
   );
-};
+}

@@ -1,19 +1,27 @@
 import styled from "styled-components/native";
+import { StyleSheet } from "react-native";
+import theme from "src/theme";
 
-export const ContainerText = styled.Text`
-  color: ${({ theme }) => theme.COLORS.PURPLE_DARK};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
-`;
-
-export const CategoryList = styled.View`
-  background-color: white;
-  width: 93px;
-  height: 25px;
-  border-radius: 100px;
-  padding-top: 6px;
-  padding-bottom: 6px;
-  margin-right: 8px;
-  border: 1px solid ${({ theme }) => theme.COLORS.PURPLE};
-  justify-content: center;
-  align-items: center;
-`;
+export const styles = StyleSheet.create({
+  categoryButton: {
+    width: 93,
+    height: 25,
+    borderRadius: 100,
+    paddingTop: 6,
+    paddingBottom: 6,
+    marginRight: 8,
+    borderWidth: 1,
+    borderColor: theme.COLORS.PURPLE,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  categoryButtonText: {
+    color: theme.COLORS.PURPLE_DARK,
+    fontFamily: theme.FONT_FAMILY.ROBOTO_BOLD,
+  },
+  sectionHeader: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 8,
+  },
+});

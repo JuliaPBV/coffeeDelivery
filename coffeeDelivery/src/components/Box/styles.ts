@@ -31,17 +31,30 @@ export const CoffeeImage = styled.Image`
   height: 120px;
   left: 6px;
   max-width: 100%;
-  top: -50px;
+  margin-top: -50px;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+`;
+
+export const CategoryBox = styled.View`
+  background-color: ${({ theme }) => theme.COLORS.PURPLE_LIGHT};
+  margin-bottom: 4px;
+  padding: 4px 8px;
+  border-radius: 80px;
+  border-color: ${({ theme }) => theme.COLORS.PURPLE_LIGHT};
+  align-self: center;
+`;
+
+export const Text = styled.Text`
+  color: ${({ theme }) => theme.COLORS.PURPLE_DARK};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
 `;
 
 export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.BALOO_2_BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_MD}px;
   color: ${({ theme }) => theme.COLORS.GRAY_200};
-  //margin-top: 5px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   text-align: center;
 `;
 
@@ -50,7 +63,7 @@ export const Description = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.TEXT_XS}px;
   color: ${({ theme }) => theme.COLORS.GRAY_400};
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 `;
 
 export const Price = styled.Text`
@@ -58,5 +71,5 @@ export const Price = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_LG}px;
   color: ${({ theme }) => theme.COLORS.YELLOW_DARK};
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
 `;

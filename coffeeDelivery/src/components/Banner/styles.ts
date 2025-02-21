@@ -18,8 +18,8 @@ export const SearchInputContainer = styled.View`
   flex-direction: row;
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.GRAY_200};
-  border-radius: 8px;
-  padding: 16px;
+  border-radius: 4px;
+  padding: 12px;
   width: 100%;
 `;
 
