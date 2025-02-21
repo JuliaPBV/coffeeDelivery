@@ -61,5 +61,5 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.COLORS.GRAY_300};
   font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_MD}px;
-  margin-bottom: 16px;
+  padding-bottom: 16px;
 `;

@@ -11,16 +11,16 @@ export const BoxContainer = styled.View`
   padding: 16px;
   margin-bottom: 20px;
   margin-top: 32px;
-  border: 1px;
+  border-width: 1px;
   border-color: ${({ theme }) => theme.COLORS.GRAY_700};
   elevation: 4;
-  shadow-color: "#000";
-  shadow-offset: {
+  shadowcolor: "#000";
+  shadowoffset: {
     width: 0;
     height: 2;
   }
-  shadow-opacity: 0.2;
-  shadow-radius: 4;
+  shadowopacity: 0.2;
+  shadowradius: 4;
   width: 208px;
   height: 262px;
   align-items: center;
@@ -38,11 +38,11 @@ export const CoffeeImage = styled.Image`
 
 export const CategoryBox = styled.View`
   background-color: ${({ theme }) => theme.COLORS.PURPLE_LIGHT};
-  margin-bottom: 4px;
   padding: 4px 8px;
   border-radius: 80px;
   border-color: ${({ theme }) => theme.COLORS.PURPLE_LIGHT};
   align-self: center;
+  margin-top: 5px;
 `;
 
 export const Text = styled.Text`
@@ -54,7 +54,9 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.BALOO_2_BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_MD}px;
   color: ${({ theme }) => theme.COLORS.GRAY_200};
-  margin-bottom: 4px;
+  padding-top: 13px;
+  padding-bottom: 10px;
+  font-weight: bold;
   text-align: center;
 `;
 
@@ -63,7 +65,6 @@ export const Description = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.TEXT_XS}px;
   color: ${({ theme }) => theme.COLORS.GRAY_400};
   text-align: center;
-  margin-bottom: 4px;
 `;
 
 export const Price = styled.Text`
@@ -71,5 +72,5 @@ export const Price = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_LG}px;
   color: ${({ theme }) => theme.COLORS.YELLOW_DARK};
   text-align: center;
-  margin-bottom: 4px;
+  padding-top: 15px;
 `;
