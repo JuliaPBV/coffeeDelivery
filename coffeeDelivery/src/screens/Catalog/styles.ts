@@ -62,4 +62,5 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_MD}px;
   padding-bottom: 16px;
+  margin-top: 20px;
 `;

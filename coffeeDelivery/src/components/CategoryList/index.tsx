@@ -1,18 +1,24 @@
 import React from "react";
-import { SectionList, Text, TouchableOpacity, View } from "react-native";
+import {
+  FlatList,
+  SectionList,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import theme from "@src/theme";
 import { styles } from "./styles";
 
 interface CategoryListProps {
-  categories: { data: string[] }[];
+  categories: string[];
 }
 
 export function CategoryList({ categories }: CategoryListProps) {
   return (
     <ThemeProvider theme={theme}>
-      <SectionList
-        sections={categories}
+      <FlatList
+        data={categories}
         keyExtractor={(item, index) => item + index}
         renderItem={({ item }) => (
           <TouchableOpacity
