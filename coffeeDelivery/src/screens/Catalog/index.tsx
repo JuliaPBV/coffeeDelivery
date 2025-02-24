@@ -25,33 +25,10 @@ import { BoxList } from "@src/components/BoxList";
 export function Catalog() {
   const coffeeData = [
     {
-      image: require("@assets/Type=Latte.png"),
-      category: "Tradicionais",
-      title: "Latte",
-      description: "Café expresso com o dobro de leite e espuma cremosa",
-      price: "R$ 9,90",
-    },
-    {
-      image: require("@assets/Type=Mochaccino.png"),
-      category: "Doces",
-      title: "Mocaccino",
-      description: "Café expresso com calda de chocolate, leite e espuma",
-      price: "R$ 9,90",
-    },
-    {
-      image: require("@assets/Type=Cubano.png"),
-      category: "Especiais",
-      title: "Cubano",
-      description:
-        "Drink gelado de café expresso com rum, creme de leite e hortelã",
-      price: "R$ 9,90",
-    },
-
-    {
       image: require("@assets/Type=Expresso.png"),
       category: "Tradicionais",
       title: "Expresso Tradicional",
-      description: "O tradicional café feito com água quente e grãos moídos",
+      description: "O tradicional café feito com água\n quente e grãos moídos",
       price: "R$ 9,90",
     },
     {
@@ -69,6 +46,14 @@ export function Catalog() {
       price: "R$ 9,90",
     },
     {
+      image: require("@assets/Type=Latte.png"),
+      category: "Tradicionais",
+      title: "Latte",
+      description: "Café expresso com o dobro de leite e espuma cremosa",
+      price: "R$ 9,90",
+    },
+
+    {
       image: require("@assets/Type=Café Gelado.png"),
       category: "Tradicionais",
       title: "Expresso Gelado",
@@ -83,6 +68,14 @@ export function Catalog() {
       price: "R$ 9,90",
     },
     {
+      image: require("@assets/Type=Mochaccino.png"),
+      category: "Doces",
+      title: "Mocaccino",
+      description: "Café expresso com calda de chocolate, leite e espuma",
+      price: "R$ 9,90",
+    },
+
+    {
       image: require("@assets/Type=Chocolate Quente.png"),
       category: "Doces",
       title: "Chocolete Quente",
@@ -90,6 +83,15 @@ export function Catalog() {
         "Bebida feita com chocolate dissolvido no leite quente e café",
       price: "R$ 9,90",
     },
+    {
+      image: require("@assets/Type=Cubano.png"),
+      category: "Especiais",
+      title: "Cubano",
+      description:
+        "Drink gelado de café expresso com rum, creme de leite e hortelã",
+      price: "R$ 9,90",
+    },
+
     {
       image: require("@assets/Type=Havaiano.png"),
       category: "Especiais",
@@ -135,34 +137,36 @@ export function Catalog() {
           </Header>
           <Banner />
 
-          <BottomBackground>
-            <View style={{ alignItems: "center", paddingBottom: 20 }}>
-              <View style={{ width: "100%", height: 300 }}>
-                <FlatList
-                  horizontal
-                  showsHorizontalScrollIndicator={false}
-                  nestedScrollEnabled={true}
-                  snapToAlignment="start"
-                  decelerationRate="fast"
-                  contentContainerStyle={{
-                    paddingHorizontal: 16,
-                    gap: 16,
-                  }}
-                  data={coffeeData.slice(0, 3)}
-                  renderItem={({ item }) => (
-                    <Box
-                      image={item.image}
-                      category={item.category}
-                      title={item.title}
-                      description={item.description}
-                      price={item.price}
-                    />
-                  )}
-                  keyExtractor={(item, index) => index.toString()}
-                />
-              </View>
+          <View style={{ alignItems: "center", paddingBottom: 20 }}>
+            <View style={{ width: "100%", height: "auto" }}>
+              <FlatList
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                nestedScrollEnabled={true}
+                snapToAlignment="start"
+                decelerationRate="fast"
+                contentContainerStyle={{
+                  paddingHorizontal: 32,
+                  gap: 32,
+                }}
+                data={coffeeData.filter((_, index) =>
+                  [3, 6, 8].includes(index)
+                )}
+                renderItem={({ item }) => (
+                  <Box
+                    image={item.image}
+                    category={item.category}
+                    title={item.title}
+                    description={item.description}
+                    price={item.price}
+                  />
+                )}
+                keyExtractor={(item, index) => index.toString()}
+              />
+            </View>
 
-              <View style={{ paddingHorizontal: 16, marginTop: 20 }}>
+            <BottomBackground>
+              <View style={{ paddingHorizontal: 16, marginTop: 50 }}>
                 <Title>Nossos cafés</Title>
                 <View
                   style={{
@@ -185,8 +189,8 @@ export function Catalog() {
                   }
                 />
               ))}
-            </View>
-          </BottomBackground>
+            </BottomBackground>
+          </View>
         </Container>
       </ScrollView>
     </ThemeProvider>

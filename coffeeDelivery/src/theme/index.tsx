@@ -76,7 +76,7 @@ const theme: Theme = {
     RED_LIGHT: "#F2DFD8",
   },
   FONT_FAMILY: {
-    BALOO_2_BOLD: "Baloo2-Bold",
+    BALOO_2_BOLD: "Baloo2_700Bold",
     ROBOTO_REGULAR: "Roboto_400Regular",
     ROBOTO_BOLD: "Roboto_700Bold",
   },

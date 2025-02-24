@@ -9,11 +9,11 @@ export const Container = styled.View`
 
 export const TopBackground = styled.View`
   background-color: ${({ theme }) => theme.COLORS.GRAY_100};
-  position: absolute;
   width: 100%;
-  height: 55%;
-  flex: 1;
-  min-height: 70vh;
+  height: 342px;
+  //flex: 1;
+  //min-height: 70vh;
+  position: absolute;
 `;
 
 export const BottomBackground = styled.View`
@@ -41,9 +41,10 @@ export const StyledImage = styled(Image)`
 `;
 
 export const GreetingText = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_REGULAR};
   color: ${({ theme }) => theme.COLORS.GRAY_900};
-  font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_MD}px;
+  font-size: ${({ theme }) => theme.FONT_SIZE.TEXT_SM}px;
+  padding-top: 4px;
 `;
 
 export const CartButton = styled.TouchableOpacity`
@@ -59,8 +60,8 @@ export const CartIcon = styled.Image`
 
 export const Title = styled.Text`
   color: ${({ theme }) => theme.COLORS.GRAY_300};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_MD}px;
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BALOO_2_BOLD};
+  font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_SM}px;
   padding-bottom: 16px;
-  margin-top: 20px;
+  font-weight: bold;
 `;

@@ -6,12 +6,13 @@ import {
   TitleList,
   DescriptionList,
   PriceList,
+  TextList,
 } from "./styles";
 
 export function BoxList({ title, data }) {
   return (
     <View>
-      <TitleList>{title}</TitleList>
+      <TextList>{title}</TextList>
       <FlatList
         data={data}
         keyExtractor={(item, index) => index.toString()}
@@ -19,7 +20,8 @@ export function BoxList({ title, data }) {
         renderItem={({ item }) => (
           <BoxContainerList>
             <CoffeeImageList source={item.image} resizeMode="contain" />
-            <View style={{ flex: 1, paddingLeft: 10 }}>
+
+            <View style={{ flex: 1 }}>
               <TitleList>{item.title}</TitleList>
               <DescriptionList>{item.description}</DescriptionList>
               <PriceList>{item.price}</PriceList>
@@ -28,5 +30,6 @@ export function BoxList({ title, data }) {
         )}
       />
     </View>
+    //, paddingLeft: 10
   );
 }

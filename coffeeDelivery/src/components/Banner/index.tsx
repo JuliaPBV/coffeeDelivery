@@ -2,12 +2,14 @@ import React from "react";
 import {
   BannerContainer,
   BannerTitle,
+  CoffeeBeansImage,
   SearchIcon,
   SearchInput,
   SearchInputContainer,
 } from "./styles";
 import theme from "@src/theme";
 import lupaIcon from "@assets/Type=magnifying-glass-regular.png";
+import coffeeBeansImage from "@assets/image.png";
 
 export const Banner = () => {
   return (
@@ -22,6 +24,7 @@ export const Banner = () => {
           placeholderTextColor={theme.COLORS.GRAY_400}
         />
       </SearchInputContainer>
+      <CoffeeBeansImage source={coffeeBeansImage} />
     </BannerContainer>
   );
 };

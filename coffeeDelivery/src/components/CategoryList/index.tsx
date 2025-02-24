@@ -1,14 +1,8 @@
 import React from "react";
-import {
-  FlatList,
-  SectionList,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { FlatList } from "react-native";
 import { ThemeProvider } from "styled-components/native";
 import theme from "@src/theme";
-import { styles } from "./styles";
+import { CategoryButton, CategoryButtonText } from "./styles";
 
 interface CategoryListProps {
   categories: string[];
@@ -21,14 +15,11 @@ export function CategoryList({ categories }: CategoryListProps) {
         data={categories}
         keyExtractor={(item, index) => item + index}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            style={styles.categoryButton}
-            onPress={() => console.log(`${item} pressionado`)}
-          >
-            <Text style={styles.categoryButtonText}>{item}</Text>
-          </TouchableOpacity>
+          <CategoryButton onPress={() => console.log(`${item} pressionado`)}>
+            <CategoryButtonText>{item}</CategoryButtonText>
+          </CategoryButton>
         )}
-        horizontal={true}
+        horizontal
         showsHorizontalScrollIndicator={false}
       />
     </ThemeProvider>

@@ -24,6 +24,7 @@ export const BoxContainer = styled.View`
   width: 208px;
   height: 262px;
   align-items: center;
+  position: relative;
 `;
 
 export const CoffeeImage = styled.Image`
@@ -47,7 +48,7 @@ export const CategoryBox = styled.View`
 
 export const Text = styled.Text`
   color: ${({ theme }) => theme.COLORS.PURPLE_DARK};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_REGULAR};
 `;
 
 export const Title = styled.Text`
@@ -61,7 +62,7 @@ export const Title = styled.Text`
 `;
 
 export const Description = styled.Text`
-  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_REGULAR};
   font-size: ${({ theme }) => theme.FONT_SIZE.TEXT_XS}px;
   color: ${({ theme }) => theme.COLORS.GRAY_400};
   text-align: center;
