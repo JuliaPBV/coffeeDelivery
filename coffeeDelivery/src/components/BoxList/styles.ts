@@ -34,7 +34,7 @@ export const TextList = styled.Text`
   color: ${({ theme }) => theme.COLORS.GRAY_400};
   font-family: ${({ theme }) => theme.FONT_FAMILY.BALOO_2_BOLD};
   font-size: ${({ theme }) => theme.FONT_SIZE.TITLE_XS};
-  padding-left: 4px;
+  padding-left: 10px;
   padding-top: 35px;
   padding-bottom: 14px;
 `;

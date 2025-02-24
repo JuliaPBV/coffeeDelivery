@@ -9,7 +9,7 @@ import {
   TopBackground,
   BottomBackground,
 } from "./styles";
-import React, { useRef } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components/native";
 import theme from "@src/theme";
 import { StyledImage } from "./styles";
@@ -124,8 +124,8 @@ export function Catalog() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}
       >
+        <TopBackground />
         <Container>
-          <TopBackground />
           <Header>
             <Greeting>
               <StyledImage source={localizador} resizeMode="contain" />
@@ -138,7 +138,14 @@ export function Catalog() {
           <Banner />
 
           <View style={{ alignItems: "center", paddingBottom: 20 }}>
-            <View style={{ width: "100%", height: "auto" }}>
+            <View
+              style={{
+                width: "100%",
+                height: 300,
+                backgroundColor: theme.COLORS.GRAY_100,
+                paddingVertical: 10,
+              }}
+            >
               <FlatList
                 horizontal
                 showsHorizontalScrollIndicator={false}

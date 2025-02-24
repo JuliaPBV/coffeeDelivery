@@ -14,7 +14,7 @@ export const CategoryButton = styled.TouchableOpacity`
 
 export const CategoryButtonText = styled.Text`
   color: ${({ theme }) => theme.COLORS.PURPLE_DARK};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_BOLD};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.ROBOTO_REGULAR};
 `;
 
 export const SectionHeader = styled.Text`

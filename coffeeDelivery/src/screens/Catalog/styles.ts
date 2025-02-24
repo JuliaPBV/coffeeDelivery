@@ -11,8 +11,7 @@ export const TopBackground = styled.View`
   background-color: ${({ theme }) => theme.COLORS.GRAY_100};
   width: 100%;
   height: 342px;
-  //flex: 1;
-  //min-height: 70vh;
+  flex-direction: row;
   position: absolute;
 `;
 

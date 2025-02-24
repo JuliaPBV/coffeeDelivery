@@ -57,7 +57,6 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.COLORS.GRAY_200};
   padding-top: 13px;
   padding-bottom: 10px;
-  font-weight: bold;
   text-align: center;
 `;
 

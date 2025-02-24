@@ -20,6 +20,7 @@ export interface Theme extends DefaultTheme {
     RED_DARK: string;
     RED: string;
     RED_LIGHT: string;
+    GRADIENTE: string[];
   };
   FONT_FAMILY: {
     BALOO_2_BOLD: string;
@@ -74,6 +75,7 @@ const theme: Theme = {
     RED_DARK: "#C44117",
     RED: "#E8BAAB",
     RED_LIGHT: "#F2DFD8",
+    GRADIENTE: ["#272221", "#FAFAFA"],
   },
   FONT_FAMILY: {
     BALOO_2_BOLD: "Baloo2_700Bold",
