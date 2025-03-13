@@ -1,7 +1,5 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { ThemeProvider } from "styled-components/native";
-import theme from "./src/theme";
 import {
   useFonts,
   Roboto_400Regular,
@@ -9,8 +7,9 @@ import {
 } from "@expo-google-fonts/roboto";
 import { Baloo2_400Regular, Baloo2_700Bold } from "@expo-google-fonts/baloo-2";
 import * as SplashScreen from "expo-splash-screen";
-import { Catalog } from "./src/screens/Catalog";
-import { Product } from "./src/screens/Product";
+import { Routes } from "../routes";
+import "../styles/global.css";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,10 +22,10 @@ export default function App() {
   });
 
   return (
-    <ThemeProvider theme={theme}>
+    <GestureHandlerRootView>
       <StatusBar style="light" translucent backgroundColor="transparent" />
 
-      <Product />
-    </ThemeProvider>
+      <Routes />
+    </GestureHandlerRootView>
   );
 }

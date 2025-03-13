@@ -1,8 +1,5 @@
 import React from "react";
-import { FlatList } from "react-native";
-import { ThemeProvider } from "styled-components/native";
-import theme from "@src/theme";
-import { CategoryButton, CategoryButtonText } from "./styles";
+import { FlatList, TouchableOpacity, Text } from "react-native";
 
 interface CategoryListProps {
   categories: string[];
@@ -10,18 +7,21 @@ interface CategoryListProps {
 
 export function CategoryList({ categories }: CategoryListProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <FlatList
-        data={categories}
-        keyExtractor={(item, index) => item + index}
-        renderItem={({ item }) => (
-          <CategoryButton onPress={() => console.log(`${item} pressionado`)}>
-            <CategoryButtonText>{item}</CategoryButtonText>
-          </CategoryButton>
-        )}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-      />
-    </ThemeProvider>
+    <FlatList
+      data={categories}
+      keyExtractor={(item, index) => item + index}
+      renderItem={({ item }) => (
+        <TouchableOpacity
+          className="w-[93px] h-[25px] rounded-full p-[6px] mr-2 border border-custom_purple justify-center items-center"
+          onPress={() => console.log(`${item} pressionado`)}
+        >
+          <Text className="text-custom_purple_dark font-custom_roboto_regular">
+            {item}
+          </Text>
+        </TouchableOpacity>
+      )}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+    />
   );
 }

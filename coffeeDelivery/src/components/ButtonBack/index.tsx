@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, ArrowBack } from "./styles";
 import ArrowBackIcon from "@assets/Icon.png";
+import { TouchableOpacity, Image } from "react-native";
 
 interface ButtonBackProps {
   onPress: () => void;
@@ -8,8 +8,8 @@ interface ButtonBackProps {
 
 export function ButtonBack() {
   return (
-    <Container>
-      <ArrowBack source={ArrowBackIcon} resizeMode="contain" />
-    </Container>
+    <TouchableOpacity className="p-[10px] justify-center items-center">
+      <Image className="w-6 h-6" source={ArrowBackIcon} resizeMode="contain" />
+    </TouchableOpacity>
   );
 }

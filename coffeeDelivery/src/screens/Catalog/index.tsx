@@ -1,26 +1,20 @@
-import {
-  Container,
-  Header,
-  Greeting,
-  GreetingText,
-  CartButton,
-  CartIcon,
-  Title,
-  TopBackground,
-  BottomBackground,
-} from "./styles";
-import React from "react";
-import { ThemeProvider } from "styled-components/native";
-import theme from "@src/theme";
-import { StyledImage } from "./styles";
+import React, { useState } from "react";
 import localizador from "@assets/Vector.png";
 import cartIcon from "@assets/State=Empty.png";
 import { Banner } from "@src/components/Banner";
-import { FlatList, View } from "react-native";
+import { FlatList, View, Image, Text, TouchableOpacity } from "react-native";
 import { Box } from "@src/components/Box";
 import { ScrollView } from "react-native-gesture-handler";
 import { CategoryList } from "@src/components/CategoryList";
 import { BoxList } from "@src/components/BoxList";
+
+interface Coffee {
+  image: any;
+  category: string;
+  title: string;
+  description: string;
+  price: string;
+}
 
 export function Catalog() {
   const coffeeData = [
@@ -116,90 +110,77 @@ export function Catalog() {
   ];
 
   const categories = ["Tradicionais", "Doces", "Especiais"];
+  const [filteredCoffeeData, setFilteredCoffeeData] =
+    useState<Coffee[]>(coffeeData);
+
+  const handleSearch = (filteredData: Coffee[]) => {
+    setFilteredCoffeeData(filteredData);
+  };
 
   return (
-    <ThemeProvider theme={theme}>
-      <ScrollView
-        nestedScrollEnabled={true}
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}
-      >
-        <TopBackground />
-        <Container>
-          <Header>
-            <Greeting>
-              <StyledImage source={localizador} resizeMode="contain" />
-              <GreetingText>Osasco-SP</GreetingText>
-            </Greeting>
-            <CartButton>
-              <CartIcon source={cartIcon} />
-            </CartButton>
-          </Header>
-          <Banner />
+    <ScrollView
+      horizontal
+      nestedScrollEnabled={true}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ flexGrow: 1 }}
+    >
+      <View className="flex-1 relative">
+        <View className=" absolute top-0 left-0 w-full h-1/2 bg-custom_gray_100" />
+        <View className="absolute bottom-0 left-0 w-full h-1/2 bg-custom_gray_900" />
 
-          <View style={{ alignItems: "center", paddingBottom: 20 }}>
-            <View
-              style={{
-                width: "100%",
-                height: 300,
-                backgroundColor: theme.COLORS.GRAY_100,
-                paddingVertical: 10,
-              }}
-            >
-              <FlatList
-                horizontal
-                showsHorizontalScrollIndicator={false}
-                nestedScrollEnabled={true}
-                snapToAlignment="start"
-                decelerationRate="fast"
-                contentContainerStyle={{
-                  paddingHorizontal: 32,
-                  gap: 32,
-                }}
-                data={coffeeData.filter((_, index) =>
-                  [3, 6, 8].includes(index)
-                )}
-                renderItem={({ item }) => (
-                  <Box
-                    image={item.image}
-                    category={item.category}
-                    title={item.title}
-                    description={item.description}
-                    price={item.price}
-                  />
-                )}
-                keyExtractor={(item, index) => index.toString()}
-              />
-            </View>
-
-            <BottomBackground>
-              <View style={{ paddingHorizontal: 16, marginTop: 50 }}>
-                <Title>Nossos cafés</Title>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    justifyContent: "space-around",
-                    alignItems: "center",
-                  }}
-                >
-                  <CategoryList categories={categories} />
-                </View>
-              </View>
-
-              {categories.map((category, index) => (
-                <BoxList
-                  key={`category-${index}`}
-                  title={category as string}
-                  data={
-                    coffeeData.filter((item) => item.category === category) ??
-                    []
-                  }
-                />
-              ))}
-            </BottomBackground>
+        <View className=" bg-custom_gray_100 w-full flex-row justify-between items-center">
+          <View className="flex-row items-center">
+            <Image
+              className="w-5 h-5 margin m-3"
+              source={localizador}
+              resizeMode="contain"
+            />
+            <Text className="font-custom_roboto_regular text-sm text-custom_gray_900 pt-1">
+              Osasco-SP
+            </Text>
           </View>
-        </Container>
-      </ScrollView>
-    </ThemeProvider>
+          <TouchableOpacity className="p-2">
+            <Image className="w-8 h-8 mr-[15px] pr-4" source={cartIcon} />
+          </TouchableOpacity>
+        </View>
+
+        <Banner coffeeData={coffeeData} onSearch={handleSearch} />
+
+        <FlatList
+          data={coffeeData.filter((_, index) => [3, 6, 8].includes(index))}
+          keyExtractor={(item, index) => index.toString()}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ paddingHorizontal: 32, gap: 16 }}
+          renderItem={({ item }) => (
+            <Box
+              image={item.image}
+              category={item.category}
+              title={item.title}
+              description={item.description}
+              price={item.price}
+            />
+          )}
+        />
+
+        <View className="px-4 mt-12">
+          <Text className="text-custom_gray_300 font-custom_baloo2_bold text-base pb-4">
+            Nossos cafés
+          </Text>
+
+          <CategoryList categories={categories} />
+        </View>
+
+        {categories.map((category, index) => (
+          <BoxList
+            key={`category-${index}`}
+            title={category}
+            data={filteredCoffeeData.filter(
+              (item) => item.category === category
+            )}
+          />
+        ))}
+      </View>
+    </ScrollView>
   );
 }
