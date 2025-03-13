@@ -11,7 +11,7 @@ export function TabRoutes() {
       screenOptions={{
         tabBarActiveTintColor: "#8047F8",
         tabBarInactiveTintColor: "#8D8686",
-        tabBarStyle: { backgroundColor: "#FAFAFA", height: 60 },
+        tabBarStyle: { backgroundColor: "#f5f5f5", height: 60 },
       }}
     >
       <Tab.Screen
@@ -25,7 +25,7 @@ export function TabRoutes() {
       />
       <Tab.Screen
         name="Carrinho"
-        //component={CartScreen}
+        component={CartScreen}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="cart-outline" color={color} size={size} />

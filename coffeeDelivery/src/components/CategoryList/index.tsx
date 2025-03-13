@@ -20,7 +20,6 @@ export function CategoryList({ categories }: CategoryListProps) {
           </Text>
         </TouchableOpacity>
       )}
-      horizontal
       showsHorizontalScrollIndicator={false}
     />
   );

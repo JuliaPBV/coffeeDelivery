@@ -2,12 +2,14 @@ import React from "react";
 import { FlatList, TouchableOpacity, View, Text, Image } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack/lib/typescript/commonjs/src/types";
+import { RootStackParamList } from "@src/@types/rootStack";
 
 export function BoxList({ title, data }) {
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const handlePress = (item) => {
-    const navigation = navigate("Product", {
+    navigation.navigate("Product", {
       coffee: {
         image: item.image,
         category: item.category,
